@@ -1,10 +1,16 @@
 import { Organization } from "database";
 
-type PublicOrganization = Pick<Organization, "id" | "name">;
+export type PublicOrganization = Pick<Organization, "id" | "name">;
 
 export class OrganizationsService {
-  public getAll(skip: number, take: number): PublicOrganization[] {
+  public getAll(
+    skip: number,
+    take: number
+  ): { skip: number; take: number; result: PublicOrganization[] } {
     // TODO: get all public organizations from prisma based on skip and take params
+
+    console.log(skip, take);
+
     const publicOrganizations = [
       {
         id: "some-id",
@@ -17,6 +23,6 @@ export class OrganizationsService {
         name: "John Doe",
       },
     ];
-    return publicOrganizations;
+    return { skip, take, result: publicOrganizations };
   }
 }
