@@ -1,9 +1,9 @@
 import { Controller, Get, Query, Route } from "tsoa";
 import { OrganizationsService } from "./organizations-service";
 
-@Route("users")
+@Route("organizations")
 export class OrganizationsController extends Controller {
-  @Get("")
+  @Get()
   public async getAllOrganizations(
     @Query() skip: number,
     @Query() take: number
